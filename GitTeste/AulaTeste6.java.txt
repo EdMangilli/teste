@@ -1,0 +1,20 @@
+package br.com.senac.aulateste;
+
+import javax.swing.*;
+
+
+public class AulaTeste6 {
+      public static void main(String args[]) {
+        String Letra = JOptionPane.showInputDialog("Informe uma letra");
+
+        if (Letra.equalsIgnoreCase("f")||
+        Letra.equalsIgnoreCase("m")){
+            System.out.println("letra correta");
+        }else{
+            System.out.println("letra incorreta");
+
+        }
+
+
+    }
+}

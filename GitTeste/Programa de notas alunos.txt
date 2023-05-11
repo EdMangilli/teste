@@ -1,0 +1,45 @@
+javascript
+Copy code
+// Função para calcular a média das notas
+function calcularMedia(notas) {
+  let soma = notas.reduce((total, nota) => total + nota, 0);
+  let media = soma / notas.length;
+  return media;
+}
+
+// Array para armazenar as notas
+let notas = [];
+
+// Loop infinito para receber as notas dos alunos
+while (true) {
+  let nota = parseFloat(prompt("Digite a nota do aluno (ou 'q' para sair): "));
+  if (isNaN(nota)) {
+    // Verifica se a entrada não é um número
+    let sair = prompt("Entrada inválida. Deseja sair? (s/n): ");
+    if (sair.toLowerCase() === 's') {
+      break;
+    }
+  } else if (nota < 0 || nota > 10) {
+    // Verifica se a nota está no intervalo válido
+    alert("Nota inválida. A nota deve estar entre 0 e 10.");
+  } else {
+    notas.push(nota);
+  }
+}
+
+// Verifica se há notas para calcular a média
+if (notas.length > 0) {
+  let media = calcularMedia(notas);
+  alert("Média das notas: " + media.toFixed(2));
+  
+  // Verifica o resultado do aluno de acordo com a média
+  if (media <= 3) {
+    alert("Aluno reprovado.");
+  } else if (media < 7) {
+    alert("Aluno em recuperação.");
+  } else {
+    alert("Aluno aprovado.");
+  }
+} else {
+  alert("Nenhuma nota foi digitada.");
+}
